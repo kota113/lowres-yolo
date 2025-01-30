@@ -13,9 +13,9 @@ import kagglehub
 # モデルのロード
 model = YOLO('yolo11m.pt')
 # Download latest version
-dataset_zip_path = kagglehub.dataset_download("mdfahimbinamin/100k-vehicle-dashcam-image-dataset")
-with zipfile.ZipFile(dataset_zip_path, 'r') as zip_ref:
-    zip_ref.extractall("./original_images")
+dataset_dl_path = kagglehub.dataset_download("mdfahimbinamin/100k-vehicle-dashcam-image-dataset")
+# copy directory
+shutil.move(dataset_dl_path, 'original_images')
 
 
 # ベースディレクトリとデータセットルートディレクトリの設定
